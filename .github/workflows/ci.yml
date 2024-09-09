@@ -31,21 +31,22 @@ jobs:
       run: |
         docker build -t my-frontend-app:latest ./frontend
 
+    # Step 6: Create Kind Cluster with Custom Configuration
     - name: Create Kind Cluster with Custom Configuration
       run: |
         kind create cluster --config ./kind-config.yaml
 
-    # Step 8: Load the backend Docker image into the kind cluster
+    # Step 7: Load the backend Docker image into the kind cluster
     - name: Load Backend Image into Kind
       run: |
         kind load docker-image my-backend-app:latest
 
-    # Step 9: Load the frontend Docker image into the kind cluster
+    # Step 8: Load the frontend Docker image into the kind cluster
     - name: Load Frontend Image into Kind
       run: |
         kind load docker-image my-frontend-app:latest
 
-    # Step 10: Apply Kubernetes manifests
+    # Step 9: Apply Kubernetes manifests
     - name: Deploy Backend to Kubernetes
       run: |
         kubectl apply -f k8s/backend-deployment.yaml
@@ -54,7 +55,7 @@ jobs:
       run: |
         kubectl apply -f k8s/frontend-deployment.yaml
 
-    # Step 11: Check if pods are running
+    # Step 10: Check if pods are running
     - name: Verify Kubernetes Deployment
       run: |
         kubectl get pods -o wide
