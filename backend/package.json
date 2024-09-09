@@ -11,10 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "eslint": "^9.10.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.14",
-    "plugin1": "^1.0.3",
-    "plugin2": "^1.0.9"
+    "mongoose": "^5.12.14"
   }
 }
