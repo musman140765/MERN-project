@@ -31,11 +31,9 @@ jobs:
       run: |
         docker build -t my-frontend-app:latest ./frontend
 
-    # Step 7: Set up kind (Kubernetes in Docker) cluster
-    - name: Set up kind cluster
-      uses: helm/kind-action@v1.3.0
-      with:
-        version: v0.11.1  # You can specify the kind version here
+    - name: Create Kind Cluster with Custom Configuration
+      run: |
+        kind create cluster --config ./kind-config.yaml
 
     # Step 8: Load the backend Docker image into the kind cluster
     - name: Load Backend Image into Kind
